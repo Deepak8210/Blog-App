@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
+const path = require("path");
 const MongoStore = require("connect-mongo");
 const methodOverride = require("method-override");
 const globalErrHandler = require("./middlewares/globalHandler");
@@ -18,6 +19,7 @@ const commentRoutes = require("./routes/comments/comments");
 const Post = require("./model/post/Post");
 
 //middlewares
+
 //sending json data
 app.use(express.json());
 //receiving data from form
@@ -27,6 +29,8 @@ app.use(methodOverride("_method"));
 
 //setting view engine
 app.set("view engine", "ejs");
+app.set("views", __dirname + "/views");
+// console.log(__dirname + "/views");
 //setting static folder
 app.use(express.static("public"));
 
