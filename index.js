@@ -31,8 +31,9 @@ app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 // console.log(__dirname + "/views");
+
 //setting static folder
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 //session configurations
 app.use(
