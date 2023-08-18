@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="brand">
+        <i class='bx bx-edit-alt'></i>
+        <div class="brand-title">
+            <span class="title-my">my</span>
+            <span class="title-porfolio">Blog-App</span>
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="nav-links ms-auto navbar-nav">
+
+            <% if(userAuth){ %>
+
+                <a href="/">Home</a>
+                <a href="/api/v1/users/profile-page" class="profile">profile</a>
+                <a href="/api/v1/posts/">Posts</a>
+                <a href="/api/v1/posts/get-post-form" class="new-post">New-Post</a>
+                <a href="/api/v1/users/logout"><i class='bx bx-log-out-circle'></i></a>
+                <% }else{%>
+                    <a href="/">Home</a>
+                    <a href="/api/v1/posts/">Posts</a>
+                    <a href="/api/v1/users/login">Login</a>
+                    <a href="/api/v1/users/register">Register</a>
+                    <% } %>
+        </div>
+    </div>
+</nav>

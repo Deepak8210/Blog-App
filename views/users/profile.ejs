@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <!-- box icon cdn -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+        <div class="container">
+
+            <section id="user">
+                <div class="user-details-container">
+                    <div class="cover-img-box">
+                        <div class="icons">
+                            <a href="/api/v1/users/cover-pic-upload"><i class='bx bx-camera'></i></a>
+
+                        </div>
+                        <div class="covers" style="background-image: url(<%=user?.coverImage%>)">
+                        </div>
+                        <!-- <img src="/images/cover-img.jpeg" alt=""> -->
+                        <div class="profile-img-box">
+                            <img src="<%=user?.profileImage %>" alt="">
+                            <a href="/api/v1/users/profile-pic-upload" class="upload-box"><i
+                                    class='bx bx-camera'></i></a>
+                        </div>
+                    </div>
+                    <div class="user-info">
+                        <h4>welcome,<span>back</span></h4>
+                        <h1>
+                            <%=user?.fullname %>
+                        </h1>
+                        <p>your registered email id is <span>
+                                <%= user?.email %>
+                            </span></p>
+                        <p>You are a proud member from <span>
+                                <%=user?.createdAt.toLocaleDateString() %>
+                            </span>
+                        </p>
+                        <div class="edit-profile">
+                            <a href="/api/v1/users/<%=user?._id%>"><i class='bx bxs-pencil'></i>Edit Profile</i></a>
+                            <a href="/api/v1/users/update-password-page"><i class='bx bxs-key'></i>Change PassWord</a>
+                        </div>
+                    </div>
+                    <div class="user-menu">
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="latest-posts-container">
+                <div class="blogs-label">
+                    <i class='bx bxs-edit-alt'></i>
+                    <h2>Latest Posts (07)</h2>
+                </div>
+                <h5 class="post-subtitle">"Explore your latest posts"</h5>
+
+                <div class="row gy-4 justify-content-center">
+                    <% if(user?.posts?.length<=0){ %>
+                        <h1>You haven't created any Posts</h1>
+                        <% }else{ %>
+
+                            <% user?.posts?.forEach((post)=>{ %>
+                                <div class="col-md-4">
+                                    <div class="posts bg-base rounded-2">
+                                        <div class="post-img-container">
+                                            <h5 class="label-category">category:<span>
+                                                    <%= post?.category %>
+                                                </span></h5>
+                                            <img src="<%=post?.image%>" alt="">
+                                        </div>
+                                        <div class="post-author-details">
+                                            <div class="user d-flex align-items-center">
+                                                <i class='bx bx-user'></i>
+                                                <h6 class="mb-0">
+                                                    <%=user?.fullname %>
+                                                </h6>
+                                            </div>
+                                            <div class="date d-flex align-items-center">
+                                                <i class='bx bx-calendar'></i>
+                                                <p class="mb-0">
+                                                    <%=post?.createdAt.toLocaleDateString() %>
+                                                </p>
+                                            </div>
+
+
+                                        </div>
+                                        <h5 class=" mb-2 post-title">
+                                            <%= post?.title %>
+                                        </h5>
+                                        <p class="post-description">
+                                            <%= post?.description %>
+                                        </p>
+                                        <a href="/api/v1/posts/<%=post?._id %>" class="link-custom">read more</a>
+                                    </div>
+                                </div>
+
+
+                                <% }) %>
+
+                                    <% } %>
+
+
+                </div>
+
+
+
+            </div>
+            <%- include('../partials/footer') %>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

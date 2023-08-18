@@ -1,0 +1,210 @@
+@import url("//db.onlinewebfonts.com/c/1dc8ecd8056a5ea7aa7de1db42b5b639?family=Gilroy");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Times New Roman", Times, serif; */
+  font-family: "Bai Jamjuree";
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: azure;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+#user {
+  width: 100%;
+  height: calc(100vh - 5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.user-details-container {
+  width: 90%;
+  margin-top: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cover-img-box {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  background-image: url("/images/cover-img.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px 10px 0 0;
+}
+.covers {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px 10px 0 0;
+}
+.cover-img-box img {
+  width: 100%;
+  object-fit: fill;
+  border-radius: 10px 10px 0 0;
+}
+.profile-img-box {
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  transform: translateX(-50%);
+  background-image: url("/images/user.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0.2rem;
+  border-radius: 50%;
+  display: flex;
+}
+.profile-img-box img {
+  width: 100%;
+  border-radius: 50%;
+}
+.upload-box {
+  position: absolute;
+  bottom: 25%;
+  right: 0;
+  width: fit-content;
+  background-color: black;
+  display: flex;
+  border-radius: 50%;
+}
+.upload-box i {
+  font-size: 1.5rem;
+  color: #08cacf;
+  padding: 0.2rem;
+}
+
+.user-info {
+  margin-top: 6.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-align: center;
+}
+.user-info h1 {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  margin-bottom: 0;
+  color: #0b5e6d;
+}
+.user-info h4 {
+  color: #08cacf;
+  margin-bottom: 0;
+}
+.user-info span {
+  color: #c2c1c1;
+}
+.user-info p {
+  margin-bottom: 0.5rem;
+}
+.edit-profile {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.edit-profile a {
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
+  font-size: 1.1rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #08cad1;
+}
+.edit-profile a:hover {
+  color: #025db3;
+}
+.edit-profile a:active {
+  box-shadow: 2px 2px 0 5px rgba(240, 255, 255, 0.5);
+  transform: translate(1%, 1%);
+}
+
+.edit-profile a i {
+  font-size: 1.1rem;
+}
+.user-menu {
+  margin-bottom: 0.5rem;
+}
+.user-menu i {
+  font-size: 1.5rem;
+  margin: 0.2rem 0.5rem;
+  border: none;
+  border-radius: 3px;
+  padding: 0.2rem;
+  color: #08cacf;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
+}
+.icons {
+  position: absolute;
+  color: #08cacf;
+  right: 0;
+  bottom: 0;
+}
+.icons a i {
+  font-size: 1.5rem;
+}
+.post-description {
+  max-height: 6.2rem;
+  overflow: hidden;
+}
+
+@media (max-width: 750px) {
+  .user-details-container {
+    width: 100%;
+  }
+  #user {
+    margin-top: 2rem;
+    padding-bottom: 6rem;
+  }
+  .user-info p {
+    margin-bottom: 0;
+  }
+  .latest-posts-container {
+    padding-bottom: 3rem;
+  }
+  .edit-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.8rem;
+  }
+}
+@media (width<=360px) {
+  .user-details-container {
+    margin-top: 4.5rem;
+  }
+  #user {
+    margin-top: 4rem;
+    padding-bottom: 10rem;
+  }
+}

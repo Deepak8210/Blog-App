@@ -1,0 +1,21 @@
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.update-form textarea {
+  padding: 0.5rem;
+}
+#submit {
+  padding: 0.2rem 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+}
+
+@media (width<=750px) {
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}

@@ -1,0 +1,102 @@
+@import url("//db.onlinewebfonts.com/c/1dc8ecd8056a5ea7aa7de1db42b5b639?family=Gilroy");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap");
+
+/* importing navbar css*/
+@import url("navbar.css");
+/*importing footer.css*/
+@import url("footer.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bai Jamjuree";
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: azure;
+}
+.container {
+  width: 100%;
+  height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.page-title {
+  color: #08cacf;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 3rem;
+}
+.page-title span {
+  color: #c2c1c1;
+}
+.upload-content {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 5px;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 70%;
+}
+.file-input {
+  font-size: 1.5rem;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  display: flex;
+  width: 100%;
+}
+.error span,
+.error i {
+  font-size: 1.2rem;
+  color: rgb(255, 29, 29);
+}
+.file-upload-btn {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.3rem 4rem;
+  color: whitesmoke;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #00f2fe 0%, #4facfe 100%);
+  cursor: pointer;
+}
+
+.file-upload-btn:hover {
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+
+@media (max-width: 750px) {
+  .upload-content {
+    width: 100%;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+  }
+  .page-title {
+    font-size: 2.5rem;
+  }
+  .file-input {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .page-title {
+    font-size: 2rem;
+  }
+  .upload-content {
+    padding: 0.5rem 1rem;
+  }
+}

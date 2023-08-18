@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+    <!-- box icon cdn -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/postDetails.css">
+
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+        <div class="container">
+            <div class="post-content">
+                <div class="heading-labels">
+                    <h1>
+                        <%= post?.title %>
+                    </h1>
+                    <div class="post-info">
+                        <span>
+                            Posted on <%= post?.createdAt.toLocaleDateString() %> ,
+                        </span>
+                        <span class="category">In category: <span>
+                                <%= post?.category %>
+                            </span></span>
+                    </div>
+                </div>
+                <div class="post-img-box">
+                    <img src="<%= post?.image %>" alt="">
+                </div>
+
+                <% if(post?.user?._id.toString()===userAuth?.toString()) {%>
+                    <div class="edit-post-box">
+                        <a href="/api/v1/posts/post-update/<%= post?._id %>"><i class='bx bx-edit'></i></a>
+                        <form class="form" action="/api/v1/posts/<%= post?._id %>?_method=DELETE" method="post">
+                            <button class="delete-post-btn"><i class='bx bxs-trash'></i></button>
+                        </form>
+                    </div>
+                    <% } %>
+
+                        <div class="post-texts">
+                            <p>
+                                <%= post?.description %>
+                            </p>
+                        </div>
+            </div>
+        </div>
+        <div class="author-details">
+            <div class="author-detail">
+                <div class="author-img-box">
+                    <img src="<%= post?.user?.profileImage %>" alt="author">
+                </div>
+                <div class="author-info">
+                    <h2>
+                        <%= post?.user?.fullname %>
+                    </h2>
+                    <h5>
+                        <%= post?.user?.role %>
+                    </h5>
+                    <p>
+                        <%= post?.user?.bio %>
+                    </p>
+                    <div class="socials">
+                        <a href="">facebook</a>
+                        <a href="">instagram</a>
+                        <a href="">twitter</a>
+                        <a href="">linkedin</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="comments-section">
+            <h2>Comments</h2>
+            <div class="users-comments">
+                <% post?.comments.forEach((comment)=>{%>
+                    <div class="comment">
+                        <div class="comments-details">
+                            <div class="comment-author-img">
+                                <img src="<%= comment?.user?.profileImage %>" alt="usr-img">
+                            </div>
+                            <div class="comment-usr-details">
+                                <h5>
+                                    <%= comment?.user?.fullname %>
+                                </h5>
+                                <span>
+                                    <% const dateTime=comment?.createdAt %>
+                                        <%= new Intl.DateTimeFormat('en-US', { month: 'long' , day: 'numeric' ,
+                                            year: 'numeric' , hour: '2-digit' , minute: '2-digit' , hour12: false
+                                            }).format(dateTime).replace( 'at' , ' @ ' ); %>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user-comment">
+                            <p>
+                                <%= comment?.message %>
+                            </p>
+                        </div>
+                        <% if(comment?.user?._id.toString()===userAuth.toString()) {%>
+                            <div class="edit-comment-box">
+                                <a href="/api/v1/comments/<%= comment?._id %>"><i class='bx bx-edit'></i></a>
+                                <form class="form"
+                                    action="/api/v1/comments/<%= comment?._id %>?_method=DELETE&postId=<%= post?._id %>"
+                                    method="post">
+                                    <button class="delete-comment-btn"><i class='bx bxs-trash'></i></button>
+                                </form>
+                            </div>
+                            <% }%>
+
+
+                    </div>
+                    <% }) %>
+
+
+
+            </div>
+            <div class="add-comment">
+                <h3>Add Comment</h3>
+                <form action="/api/v1/comments/<%= post?._id %>" method="post" class="add-comment-area">
+                    <textarea id="" cols="50" rows="3" name="message"></textarea>
+                    <button class="comment-btn" type="submit">comment</button>
+                </form>
+            </div>
+        </div>
+        <%- include('../partials/footer') %>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>

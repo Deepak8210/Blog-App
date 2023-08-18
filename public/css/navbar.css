@@ -1,0 +1,85 @@
+/*************** NAVBAR STYLES *************/
+.navbar {
+  width: 90%;
+  min-height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  /* background-color: #dadada; */
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+.navbar-toggler {
+  border: none;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  line-height: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.brand i {
+  font-size: 1.5rem;
+  color: #08cacf;
+}
+.brand-title {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.nav-links a i {
+  font-size: 1.5rem;
+}
+.brand-title .title-my {
+  color: #c2c1c1;
+}
+.brand-title .title-porfolio {
+  color: #08cacf;
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+.nav-links a {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: black;
+  opacity: 0.3;
+  margin: 1rem 1.2rem 0;
+  letter-spacing: 4px;
+  transition: all 0.2s ease;
+}
+.nav-links a:nth-child(1) {
+  opacity: 0.6;
+}
+.nav-links .new-post {
+  background-color: #03b8be;
+  padding: 0.2rem;
+  padding-left: 0.4rem;
+  color: white;
+  opacity: 1;
+  border-radius: 2px;
+}
+.nav-links .new-post:hover {
+  color: white;
+  opacity: 1;
+}
+.nav-links a:hover {
+  opacity: 0.6;
+  color: #03b8be;
+  transform: scale(0.9);
+}
+
+/*************** NAVBAR STYLES END*************/

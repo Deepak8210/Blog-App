@@ -1,0 +1,43 @@
+<div class="row gy-4 justify-content-center">
+    <% if(posts.length<=0){%>
+        <h1>No Posts Posted Yet</h1>
+        <% }else{%>
+            <% posts.forEach((post)=>{ %>
+                <div class="col-md-4">
+                    <div class="posts bg-base rounded-2">
+                        <div class="post-img-container">
+                            <h5 class="label-category">
+                                <%= post?.category %>
+                            </h5>
+                            <img src="<%= post?.image %>" alt="">
+                        </div>
+                        <div class="post-author-details">
+
+                            <div class="user d-flex align-items-center">
+                                <i class='bx bx-user'></i>
+                                <h6 class="mb-0">
+                                    <%= post?.user?.fullname %>
+                                </h6>
+                            </div>
+                            <div class="date d-flex align-items-center">
+                                <i class='bx bx-calendar'></i>
+                                <p class="mb-0">
+                                    <%= post?.createdAt.toLocaleDateString() %>
+                                </p>
+                            </div>
+                        </div>
+                        <h5 class="post-title">
+                            <%= post?.title %>
+                        </h5>
+                        <p class="post-text">
+                            <%= post?.description %>
+                        </p>
+                        <a href="/api/v1/posts/<%=post?._id %>" class="link-custom">read more</a>
+                    </div>
+                </div>
+                <% }) %>
+
+                    <% } %>
+
+
+</div>

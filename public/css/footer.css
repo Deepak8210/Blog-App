@@ -1,0 +1,59 @@
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+.footer h1 {
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+.footer p {
+  text-transform: uppercase;
+  word-spacing: 5px;
+  letter-spacing: 5px;
+}
+.visionary {
+  color: #08cacf;
+}
+.vibes {
+  color: #c2c1c1;
+}
+.contact-no,
+.email {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.contact-no i,
+.email i {
+  font-size: 1.8rem;
+  color: #08cacf;
+}
+.contact-no h4,
+.email h4 {
+  color: #aaa7a7;
+}
+.social-media {
+  display: flex;
+  gap: 1rem;
+}
+.social-media a i {
+  font-size: 1.5rem;
+  color: #08cacf;
+}
+
+@media (max-width: 750px) {
+  .footer p {
+    text-transform: uppercase;
+    text-align: center;
+    word-spacing: 2px;
+    letter-spacing: 0;
+    text-transform: capitalize;
+  }
+  .footer .email i {
+    display: none;
+  }
+}
