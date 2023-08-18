@@ -80,7 +80,11 @@
     </div>
     <div class="main-posts-section container">
         <% if(posts.length<=0){%>
-            <h1>No Posts Yet</h1>
+            <div class="d-flex justify-content-center
+            w-100">
+                <h1>No Posts Yet</h1>
+            </div>
+
             <% } %>
                 <% posts.forEach((post)=>{%>
                     <div class="post">
