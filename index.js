@@ -59,7 +59,7 @@ app.get("/", async (req, res) => {
     const posts = await Post.find().sort({ _id: -1 }).populate("user");
     res.render("index", { posts });
   } catch (error) {
-    res.render("index", { error: error.message });
+    res.render("index.ejs", { error: error.message });
   }
 });
 
