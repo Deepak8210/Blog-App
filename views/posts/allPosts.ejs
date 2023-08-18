@@ -25,7 +25,7 @@
 
             <div class="intro-posts container">
                 <div class="dash"></div>
-                <div class="intro-left">
+                <div class="intro-left" style="background-image: url('<%=posts[0]?.image%>');">
                     <div class="overlay"></div>
                     <div class="left-content">
                         <span class="category">
@@ -47,8 +47,8 @@
 
                 </div>
                 <div class="intro-right">
-                    <div class="intro-right-top">
-                        <div class="overlay-right"></div>
+                    <div class="intro-right-top" style="background-image: url('<%=posts[1]?.image%>');">
+                        <div class=" overlay-right"></div>
                         <div class="right-content">
                             <span class="category">
                                 <%= posts[1]?.category %>
@@ -62,7 +62,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="intro-right-bottom">
+                    <div class="intro-right-bottom" style="background-image: url('<%=posts[2]?.image%>');">
                         <div class="overlay-right"></div>
                         <div class="right-content">
                             <span class="category">
@@ -70,8 +70,13 @@
 
                             </span>%>
                             </span>
-                            <h5>The Pomodoro Technique Really Works.</h5>
-                            <span>John Doe December 27, 2017</span>
+                            <h5>
+                                <%= posts[2]?.title %>
+                            </h5>
+                            <span>
+                                <%= posts[2]?.user?.fullname %> <%=posts[1]?.createdAt.toLocaleString('en-US', {
+                                        month: 'long' , day: 'numeric' , year: 'numeric' })%>
+                            </span>
                         </div>
                     </div>
                 </div>
