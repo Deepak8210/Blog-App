@@ -95,8 +95,9 @@ body {
 }
 .post-texts p {
   margin-top: 1rem;
-  line-height: 180%;
+  line-height: 150%;
   word-spacing: 2px;
+  text-align: justify;
 }
 a {
   text-decoration: none;

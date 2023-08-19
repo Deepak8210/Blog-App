@@ -46,7 +46,7 @@
 
                         <div class="post-texts">
                             <p>
-                                <%= post?.description %>
+                                <%- post?.description?.replace(/\n/g, '<br>' ) %>
                             </p>
                         </div>
             </div>
