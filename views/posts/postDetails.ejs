@@ -103,7 +103,7 @@
                                 <%= comment?.message %>
                             </p>
                         </div>
-                        <% if(comment?.user?._id.toString()===userAuth.toString()) {%>
+                        <% if(comment?.user?._id?.toString()===userAuth?.toString()) {%>
                             <div class="edit-comment-box">
                                 <a href="/api/v1/comments/<%= comment?._id %>"><i class='bx bx-edit'></i></a>
                                 <form class="form"
